@@ -67,3 +67,50 @@ class Queue {
 
     // Lấy số lượng phần tử
 }
+// Khởi tạo một đối tượng Stack mới cho ứng dụng
+const myStack = new Stack();
+
+// Hàm xử lý sự kiện khi bấm nút Push trên giao diện
+function handlePush() {
+    const inputElement = document.getElementById("stackInput");
+    const value = inputElement.value.trim();
+
+    if (value === "") {
+        alert("Vui lòng nhập giá trị vào ô!");
+        return;
+    }
+
+    // Gọi phương thức push từ Backend
+    myStack.push(value);
+    
+    // Xóa ô nhập liệu sau khi thêm
+    inputElement.value = "";
+    
+    // Cập nhật lại giao diện hiển thị Stack
+    renderStack();
+}
+
+// Hàm xử lý sự kiện khi bấm nút Pop trên giao diện
+function handlePop() {
+    if (myStack.isEmpty()) {
+        alert("Stack đang trống, không thể Pop!");
+        return;
+    }
+
+    myStack.pop();
+    renderStack();
+}
+
+// Hàm render (vẽ lại) các phần tử Stack ra màn hình
+function renderStack() {
+    const container = document.getElementById("stackContainer");
+    container.innerHTML = ""; // Xóa nội dung cũ
+
+    // Lặp qua các phần tử trong Stack để hiển thị (phần tử đỉnh nằm trên cùng)
+    for (let i = myStack.items.length - 1; i >= 0; i--) {
+        const itemDiv = document.createElement("div");
+        itemDiv.className = "stack-item";
+        itemDiv.innerText = myStack.items[i];
+        container.appendChild(itemDiv);
+    }
+}
