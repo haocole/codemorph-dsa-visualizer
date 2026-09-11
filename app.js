@@ -104,6 +104,11 @@ function handlePop() {
     myStack.pop();
     renderStack();
 }
+// Xử lý khi người dùng bấm Clear
+function handleClear() {
+    myStack.clear();
+    renderStack();
+}
 
 // Hàm render (vẽ lại) các phần tử Stack ra màn hình
 function renderStack() {
@@ -111,7 +116,7 @@ function renderStack() {
     container.innerHTML = ""; // Xóa nội dung cũ
 
     // Lặp qua các phần tử trong Stack để hiển thị (phần tử đỉnh nằm trên cùng)
-    for (let i = myStack.items.length - 1; i >= 0; i--) {
+    for (let i = 0; i < myStack.items.length; i++) {
         const itemDiv = document.createElement("div");
         itemDiv.className = "stack-item";
         itemDiv.innerText = myStack.items[i];
