@@ -33,6 +33,10 @@ class Stack {
     size() {
         return this.items.length;
     }
+
+    clear() {
+    this.items = [];
+}
 }
 class Queue {
     constructor() {
@@ -80,7 +84,7 @@ function handlePush() {
         return;
     }
 
-    // Gọi phương thức push từ Backend
+    // Thêm phần tử vào Stack
     myStack.push(value);
     
     // Xóa ô nhập liệu sau khi thêm
