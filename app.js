@@ -35,9 +35,10 @@ class Stack {
     }
 
     clear() {
-    this.items = [];
+        this.items = [];
+    }
 }
-}
+
 class Queue {
     constructor() {
         this.items = [];
@@ -69,8 +70,17 @@ class Queue {
         return this.items.length === 0;
     }
 
-    // Lấy số lượng phần tử
+    // Kiểm tra số lượng phần tử
+    size() {
+        return this.items.length;
+    }
+
+    // Xóa toàn bộ phần tử
+    clear() {
+        this.items = [];
+    }
 }
+
 // Khởi tạo một đối tượng Stack mới cho ứng dụng
 const myStack = new Stack();
 
@@ -86,10 +96,10 @@ function handlePush() {
 
     // Thêm phần tử vào Stack
     myStack.push(value);
-    
+
     // Xóa ô nhập liệu sau khi thêm
     inputElement.value = "";
-    
+
     // Cập nhật lại giao diện hiển thị Stack
     renderStack();
 }
@@ -104,6 +114,7 @@ function handlePop() {
     myStack.pop();
     renderStack();
 }
+
 // Xử lý khi người dùng bấm Clear
 function handleClear() {
     myStack.clear();
